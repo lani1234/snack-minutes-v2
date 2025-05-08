@@ -1,0 +1,47 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+out/
+
+### VS Code ###
+.vscode/
+
+### Maven ###
+target/
+*.jar
+*.war
+*.ear
+*.log
+*.classpath
+*.project
+*.settings
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Spring Boot specific
+spring-boot-devtools/
+*.properties
+*.yml
+
+# Build tool files
+*.log
+
+# JDK specific
+*.class
