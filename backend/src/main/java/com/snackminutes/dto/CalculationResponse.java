@@ -7,5 +7,5 @@ public class CalculationResponse {
     private String snackName;
     private int numberOfServings;
     private String activityName;
-    private double minutesRequired;
+    private double minutes;
 }
