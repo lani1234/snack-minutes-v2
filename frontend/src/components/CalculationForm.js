@@ -6,15 +6,15 @@ import { calculateMinutes } from "../services/api";
 export default function CalculationForm({ onResult }) {
   const [weight, setWeight] = useState(0);
   const [snackId, setSnackId] = useState("");
-  const [servings, setServings] = useState(1);
   const [activityId, setActivityId] = useState("");
+  const numberOfServings = 1; // hardcoded value for now
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
       weightLbs: Number(weight),
       snackId: Number(snackId),
-      numberOfServings: Number(servings),
+      numberOfServings,
       activityId: Number(activityId),
     };
     const result = await calculateMinutes(data);
@@ -36,18 +36,12 @@ export default function CalculationForm({ onResult }) {
         <SnackSelector value={snackId} onChange={setSnackId} />
       </div>
       <div>
-        <label>Servings:</label>
-        <input
-          type="number"
-          value={servings}
-          onChange={(e) => setServings(e.target.value)}
-          min={1}
-          required
-        />
-      </div>
-      <div>
         <ActivitySelector value={activityId} onChange={setActivityId} />
       </div>
+
+      {/* Optional hidden input if you want it to appear in the form DOM */}
+      <input type="hidden" name="numberOfServings" value={numberOfServings} />
+
       <button type="submit">Calculate</button>
     </form>
   );
