@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { fetchActivities } from "../services/api";
+import styles from './CalculationForm.module.css';
 
-export default function ActivitySelector({ value, onChange }) {
+export default function ActivitySelector({ value, onChange, className }) {
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
@@ -9,8 +10,12 @@ export default function ActivitySelector({ value, onChange }) {
   }, []);
 
   return (
-    <select value={value} onChange={(e) => onChange(e.target.value)}>
-      <option value="">Select an activity</option>
+    <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className={className || styles.select}
+    >
+      <option value="">Select an Activity</option>
       {activities.map((activity) => (
         <option key={activity.id} value={activity.id}>
           {activity.name}

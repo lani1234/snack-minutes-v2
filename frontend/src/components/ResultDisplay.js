@@ -1,8 +1,13 @@
+import styles from './ResultDisplay.module.css';
+
 export default function ResultDisplay({ minutes }) {
+  if (minutes == null) return null;
+
   return (
-    <div>
-      <h2>Total Snack Minutes:</h2>
-      <p>{minutes} minutes</p>
+    <div className={styles.resultContainer}>
+      <p className={styles.minutes}>
+        <strong>{minutes}</strong> Snack Minutes
+      </p>
     </div>
   );
 }

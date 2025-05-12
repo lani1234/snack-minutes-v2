@@ -1,13 +1,14 @@
 import { useState } from "react";
 import CalculationForm from "./components/CalculationForm";
 import ResultDisplay from "./components/ResultDisplay";
+import styles from './components/CalculationForm.module.css';
 
 function App() {
   const [result, setResult] = useState(null);
 
   return (
-    <div className="App">
-      <h1>Snack Minutes Calculator</h1>
+    <div  className={styles.calculatorContainer}>
+      <h1 className={styles.heading}>Snack Minutes Calculator</h1>
       <CalculationForm onResult={(res) => setResult(res.minutes)} />
       {result !== null && <ResultDisplay minutes={result} />}
     </div>
